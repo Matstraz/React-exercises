@@ -2,6 +2,12 @@ import React from "react"
 
 export class Age extends React.Component{
     render(){
-        return <p>Your age is {this.props.age}</p>
+        return (
+            <div>
+                <p>Your age is {this.props.age}{this.props.error}</p>
+                {this.props.error}
+            </div>
+        )
+        
     }
 }

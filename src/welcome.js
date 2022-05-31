@@ -6,16 +6,14 @@ export class Welcome extends React.Component{
         return (
             <div>
                 <p>Welcome, <strong>{this.props.name}</strong></p>
-                <Age age={this.props.age}/>
-                {this.props.element}
+                {this.props.age>18
+                ? <Age age={this.props.age}/>
+                : <Age error={this.props.error}/>}
+                <p>{this.props.element}</p>
             </div> 
         ) 
     }
-    // Can you set a default value for the name prop?
     static defaultProps = {
         name: 'Nino',
     }
 }
-
-//What happens if no name prop is passed to the Welcome component?
-//La proprietà non verrà renderizzata, come se {this.props.name} non fosse stato scritto.
