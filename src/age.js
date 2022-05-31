@@ -4,10 +4,8 @@ export class Age extends React.Component{
     render(){
         return (
             <div>
-                <p>Your age is {this.props.age}{this.props.error}</p>
-                {this.props.error}
+                <p>Your age (or your name) is {this.props.age}{this.props.error}</p>
             </div>
         )
-        
     }
 }
