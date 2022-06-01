@@ -1,5 +1,4 @@
 import React from "react";
-import { CounterDisplay } from "./counterdisplay";
 
 export class Counter extends React.Component{
 
@@ -21,13 +20,16 @@ export class Counter extends React.Component{
         }
     }
 
+    componentDidUpdate(prevProps){
+        if(this.state.count > this.props.initialValue*10){
+            this.setState({count: prevProps.initialValue})
+        }
+    }
+
     render(){
         return (
             <div>
-                {this.state.count < this.props.initialValue * 10
-                ?  <CounterDisplay count={this.state.count}/>
-                :  <CounterDisplay count={this.props.initialValue} />
-            } 
+        <h1>{this.state.count}</h1>
             
             </div>
         )
