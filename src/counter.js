@@ -19,6 +19,9 @@ export class Counter extends React.Component{
     }
 }
 
+//When calling setState to increment the counter, should the parameter be a function or an object? Why?
+//Il parametro dovrebbe essere un oggetto perchè è ciò che rappresenta l'attuale state del componente e che andrà ad aggiornare il precedente.
+
 
 
 
