@@ -12,9 +12,21 @@ export class ClickTracker extends React.Component{
     }
 
     wichFirst2 = (event) =>{
-        console.log(event.currentTarget.lastChild.alt)
+        this.setState({lastClick: event.currentTarget.lastChild.alt})
    }
 
+/*    state = {                                              //Questa seconda alternativa sembra più semplice della precedente
+    lastClick: ''
+}
+
+wichFirst = (event) =>{
+     this.setState({lastClick: event.target.innerHTML})
+}
+
+wichFirst2 = (event) =>{
+    this.setState({lastClick: event.currentTarget.lastChild.alt})
+}
+ */
     
    //Modifiy the ClickTracker so that each button contains an image instead of a text. How does this affect the event handler?
    //Cliccando sull'immagine si avranno le info relativi all'elemento che ha lanciato l'evento (l'immagine stessa)
