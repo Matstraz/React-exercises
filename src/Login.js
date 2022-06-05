@@ -32,14 +32,23 @@ export class Login extends React.Component{
         console.log(this.state) 
     }
 
+    handleInitialState = () =>{
+        this.setState({
+            username: "",
+            password: "",
+            remember: false,
+        })
+    }
+
     render(){
     
         return (
             <div>
                 <input name="username" type="text" value={this.state.username} onChange={this.handleInputValue}/>
                 <input name="password" type="password" value={this.state.password} onChange={this.handleInputValue}/>
-                <input name="remember" type="checkbox" checked={this.state.check} onChange={this.handleInputValue}/>
+                <input name="remember" type="checkbox" checked={this.state.remember} onChange={this.handleInputValue}/>
                 <button disabled={this.state.disabled} onClick={this.onLogin}>Login</button>
+                <button onClick={this.handleInitialState}>Reset</button>
             </div>
         )
     }
