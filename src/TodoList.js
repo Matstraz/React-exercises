@@ -16,6 +16,10 @@ export class TodoList extends React.Component{
         this.setState({name: ''})
     }
 
+    handleResetArray = () =>{
+        this.setState({items: []})
+    }
+
     render(){
         return (
             <div>
@@ -23,7 +27,8 @@ export class TodoList extends React.Component{
                     {this.state.items.map((name, index) => (<li key={name + index}>{name}</li>))}
                 </ul>
                 <input name='name' type='text' value={this.state.name} onChange={this.handleInputChange}/>
-                <button onClick={this.handleAddValue} type="reset">Add Yuor Name</button>
+                <button onClick={this.handleAddValue}>Add Yuor Name</button>
+                <button onClick={this.handleResetArray}>Reset</button>
             </div>
         )
     }
