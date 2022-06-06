@@ -1,11 +1,12 @@
 import React from "react";
-import { Hello } from "./hello";
+import { Color } from "./Colors";
+
 
 export class App extends React.Component{
     render(){
         return (
             <div>
-                <Hello/>
+                <Color colors={['Blue', 'Orange', 'Gray', 'Black', 'White']} />
             </div>
         )
     }
