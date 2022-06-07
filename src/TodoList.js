@@ -20,11 +20,17 @@ export class TodoList extends React.Component{
         this.setState({items: []})
     }
 
+    handleRemoveItem = (event) =>{
+         const toRemove = event.target.previousSibling.textContent
+         this.setState((state) => ({items: state.items.filter((item) => item !== toRemove)}))
+         console.log(event.target)
+    }
+
     render(){
         return (
             <div>
                 <ul>
-                    {this.state.items.map((name, index) => (<li key={name + index}>{name}</li>))}
+                    {this.state.items.map((name, index) => (<li key={name + index}>{name}<button onClick={this.handleRemoveItem}>Remove Item</button> </li>))}
                 </ul>
                 <input name='name' type='text' value={this.state.name} onChange={this.handleInputChange}/>
                 <button onClick={this.handleAddValue}>Add Yuor Name</button>
