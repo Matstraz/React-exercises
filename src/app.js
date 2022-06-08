@@ -5,7 +5,7 @@ import { Hello } from "./hello";
 export class App extends React.Component{
     render(){
         return (
-            <Container>
+            <Container title="The Title">
                 <Hello/>
             </Container>
         )
