@@ -29,38 +29,11 @@ export class TodoList extends React.Component{
     render(){
         return (
             <div>
-                <ul>
-                    {this.state.items.map((name, index) => (<li key={name + index}>{name}<button onClick={this.handleRemoveItem}>Remove Item</button> </li>))}
-                </ul>
-                <input name='name' type='text' value={this.state.name} onChange={this.handleInputChange}/>
-                <button onClick={this.handleAddValue}>Add Yuor Name</button>
-                <button onClick={this.handleResetArray}>Reset</button>
+                {this.props.render(this.state.items)}
+               
+{/*                     {this.state.items.map((name, index) => (<li key={name + index}>{name}<button onClick={this.handleRemoveItem}>Remove Item</button> </li>))}
+             */}
             </div>
         )
     }
-
-/*     state = {                                            //Metodo alternativo utilizzando un uncontrolled component
-        items: ['Nino', 'Mario', 'Michela', 'Fabio']
-    }
-
-
-
-    handleAddValue = (event) =>{
-        event.preventDefault()
-        this.setState((state) => ({items: state.items.concat(event.target.elements.name.value)}))
-    }
-
-    render(){
-        return (
-            <div>
-                <form onSubmit={this.handleAddValue}>
-                <ul>
-                    {this.state.items.map((name, index) => (<li key={name + index}>{name}</li>))}
-                </ul>
-                <input name='name' type='text' />
-                <button>Add Yuor Name</button>
-                </form>
-            </div>
-        )
-    } */
 }
