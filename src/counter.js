@@ -1,43 +1,26 @@
-import React from "react";
+import { useState } from "react"
 
-export class Counter extends React.Component{
+export function Counter({initialValue = 0}){
 
-    state = {
-        count: this.props.initialValue
+    let [count, setCounter] = useState(initialValue)
+
+    function handleIncrementValue(){
+        setCounter(count + 1)
     }
 
-    componentDidMount(){
-        this._interval = setInterval(() => {
-            this.setState({count: this.state.count + this.props.increment})
-        }, this.props.timeOut)
-    }
-    //Is the constructor still required?
-    //NO
-
-    componentWillUnmount(){
-        if(this._interval){
-            clearInterval(this._interval)
-        }
+    function handleResetVlaue(){
+        setCounter(initialValue)
     }
 
-    componentDidUpdate(prevProps){
-        if(this.state.count > this.props.initialValue*10){
-            this.setState({count: prevProps.initialValue})
-        }
-    }
 
-    render(){
-        return (
-            <div>
-        <h1>{this.state.count}</h1>
-            
-            </div>
-        )
-    }
-}
 
-Counter.defaultProps = {
-    initialValue: 10,
-    increment: 2,
-    timeOut: 250
+
+    return (
+        <div>
+            <h1>Counter: {count}</h1>
+            <button onClick={handleIncrementValue}>Increment</button>
+            <button onClick={handleResetVlaue}>Reset</button>
+        </div>
+    )
+
 }
