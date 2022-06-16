@@ -1,15 +1,18 @@
 import React from "react";
 import { Counter } from "./Counter";
-import { Login } from "./Login";
+    
 
-export class App extends React.Component{
-    render(){
+    export function App(){
+
+        function onCounterChange(count){
+            console.log(count)
+        }
+
         return (
             <div>
-               <Counter />
-               <Login />
+               <Counter initialValue={0} onCounterChange={onCounterChange}/>
             </div>
         )
     }
-}
+
 
