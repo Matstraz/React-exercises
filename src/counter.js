@@ -1,25 +1,30 @@
 import { useEffect, useState } from "react"
 
-export function Counter(props){
+export function Counter({initialValue = 0}){
 
-    let [count, setCounter] = useState(props.initialValue)
+    const [count, setCounter] = useState(initialValue)
 
     function handleIncrementValue(){
         setCounter(count + 1)
     }
 
     function handleResetVlaue(){
-        setCounter(props.initialValue)
+        setCounter(initialValue)
     }
 
     useEffect(()=> {
-        props.onCounterChange(count)
-    }, [count, props])
+        const increment = setInterval(()=>{
+            setCounter(count + 1)
+        }, 2000)
+    
+    return()=>clearInterval(increment)}
+        
+        , [count])
 
 
- /*    Add a side effect to the Counter component from useState 01 that calls a onCounterChange
-     function with the current value of the counter every time value of the counter changes.
-      The function should be received as a prop.
+
+ /*Rewrite the Counter component from State 1 as a function component and add a side effect that initializes the 
+ interval as soon as the component renders, and clears it when the component unmounts.
  */
 
 
