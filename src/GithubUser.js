@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-export function GithubUser({username="matstraz"}){
+export function GithubUser({username}){
 
     const [hub, setHub] = useState(username)
 
@@ -20,7 +20,3 @@ export function GithubUser({username="matstraz"}){
         </div>
     )
 }
-
-/* Create a GithubUser component that fetches the data of the username passed
- as a prop, and renders some of the data within a div tag. The API to query 
- is https://api.github.com/users/${username}. */
