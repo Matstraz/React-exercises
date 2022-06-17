@@ -1,26 +1,12 @@
-import { useEffect, useState } from "react"
+import { useCounter } from "./useCounter"
+
+
 
 export function Counter({initialValue = 0}){
 
-    const [count, setCounter] = useState(initialValue)
+    const {onDecrement, onIcrement, onReset, count} = useCounter(initialValue)
 
-    function handleIncrementValue(){
-        setCounter(count + 1)
-    }
-
-    function handleResetVlaue(){
-        setCounter(initialValue)
-    }
-
-    useEffect(()=> {
-        const increment = setInterval(()=>{
-            setCounter(count + 1)
-        }, 2000)
-    
-    return()=>clearInterval(increment)}
-        
-        , [count])
-
+  
 
 
  /*Rewrite the Counter component from State 1 as a function component and add a side effect that initializes the 
@@ -31,8 +17,9 @@ export function Counter({initialValue = 0}){
     return (
         <div>
             <h1>Counter: {count}</h1>
-            <button onClick={handleIncrementValue}>Increment</button>
-            <button onClick={handleResetVlaue}>Reset</button>
+            <button onClick={onIcrement}>Increment</button>
+            <button onClick={onDecrement}>Decrement</button>
+            <button onClick={onReset}>Reset</button>
         </div>
     )
 
