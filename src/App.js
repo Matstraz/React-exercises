@@ -1,5 +1,6 @@
 import React from "react";
-import { ControlledForm } from "./ControlledForm";
+import { GithubUser } from "./GithubUser";
+
 
 
     
@@ -9,7 +10,7 @@ import { ControlledForm } from "./ControlledForm";
 
         return (
             <div>
-               <ControlledForm />
+               <GithubUser username={'matstraz'}/>
             </div>
         )
     }
