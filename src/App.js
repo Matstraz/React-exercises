@@ -1,5 +1,6 @@
 import React from "react";
-import { Counter } from "./counter";
+import { ControlledForm } from "./ControlledForm";
+
 
     
 
@@ -8,7 +9,7 @@ import { Counter } from "./counter";
 
         return (
             <div>
-               <Counter />
+               <ControlledForm />
             </div>
         )
     }
