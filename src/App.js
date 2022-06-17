@@ -1,5 +1,5 @@
 import React from "react";
-import { Counter } from "./Counter";
+import { GithubUser } from "./GithubUser";
     
 
     export function App(){
@@ -7,7 +7,7 @@ import { Counter } from "./Counter";
 
         return (
             <div>
-               <Counter initialValue={0}/>
+               <GithubUser />
             </div>
         )
     }
