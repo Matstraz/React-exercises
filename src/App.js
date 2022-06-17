@@ -1,4 +1,5 @@
 import React from "react";
+import { Counter } from "./counter";
 import { GithubUser } from "./GithubUser";
 
 
@@ -11,6 +12,7 @@ import { GithubUser } from "./GithubUser";
         return (
             <div>
                <GithubUser username={'matstraz'}/>
+               <Counter />
             </div>
         )
     }
