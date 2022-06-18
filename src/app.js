@@ -1,12 +1,18 @@
 import React from "react";
-import { FilteredList } from "./FIlteredList";
+import { CarDetails } from "./CarDetails";
+
+const initialData = {
+    model: 'Citroen C3',
+    year: 2020,
+    color: 'White'
+}
 
 
 export class App extends React.Component{
     render(){
         return (
             <div>
-               <FilteredList />
+               <CarDetails initialData={initialData}/>
             </div>
         )
     }
