@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import { Counter } from "./Counter";
+import { ShowGithubUser } from "./ShowGithubUser";
 import { Welcome } from "./welcome";
 
 
@@ -10,6 +11,7 @@ export function App(){
                 <Routes>
                     <Route path="/" element={<Welcome name={'Nino'}/>}/>
                     <Route path="/counter" element={<Counter />}/>
+                    <Route path="/users/:username" element={<ShowGithubUser />}/>
                 </Routes>
                 
            
@@ -17,5 +19,3 @@ export function App(){
         )
     
 }
-
-/*Add a new Route to the /counter path that renders the Counter component from useState 01. */
