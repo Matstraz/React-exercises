@@ -19,7 +19,7 @@ export function GithubUserList(){
 
     return(
         <div>
-            <ul>{usernames.map((name, index) => <li key={name + index}><Link to="users/">{name}</Link></li>)}</ul>
+            <ul>{usernames.map((name, index) => <li key={name + index}><Link to={`users/${name}`}>{name}</Link></li>)}</ul>
             <input type="text" value={newUser} onChange={handleTypeUsername}></input>
             <button onClick={handleAddUsername}>Add User</button>
             <Outlet/>

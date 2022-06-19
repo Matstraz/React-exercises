@@ -17,7 +17,7 @@ export function App(){
                     <Route path="counter" element={<Counter />}/>
                     <Route path="userslist" element={<GithubUserList />}>
                         <Route index element={<p>Please, select a name</p>}/>
-                        <Route path="users/" element={<ShowGithubUser />}/>
+                        <Route path="users/:username" element={<ShowGithubUser />}/>
                     </Route>
                     <Route path="*" element={<h2>Route not Found, please go back <Link to="/">Home</Link></h2>}/>
                 </Routes>
