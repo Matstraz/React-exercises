@@ -10,7 +10,7 @@ import { GithubUser } from "./GithubUser";
 
         return (
             <div>
-               <GithubUser username={'matstraz'}/>
+               <GithubUser username={null}/>
             </div>
         )
     }

@@ -1,30 +1,18 @@
-import { useState, useEffect } from "react"
+import useSWR from "swr"
+
+ const fetcher = url => fetch(url).then((response) => response.json())
 
  export function useGithubUser(username){
 
-    const [hub, setHub] = useState(username)
-    const [loading, setLoading] = useState (false)
-    const [error, setError] = useState(null)
-
-    useEffect(()=> {
-        setLoading(true)
-        setError(null)
-        fetch(`https://api.github.com/users/${username}` )
-        .then((response) =>{
-            if(response.status !== 200){
-                setError(new Error('User not found'))
-            }
-            return response.json()})
-        .then((data)=> setHub(data))
-        .catch(error => setError(error))
-        .finally(()=> setLoading(false))
-    }, [username])
-    
+    const {data, error, } = useSWR(username !== null ? `https://api.github.com/users/${username}`: null, fetcher)
 
     return{
-        userData: hub,
-        loading: loading,
-        error: error
+        userData: data,
+        loading: !data && !error && username !== null,
+        genericError: error,
+        userError: !data
     }
 
 }
+
+/* Modify the useGithubUser hook so that, if the username is null, no request is made. */

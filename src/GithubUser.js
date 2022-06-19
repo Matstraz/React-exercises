@@ -1,7 +1,7 @@
 import { useGithubUser } from "./useGithubUser"
 
 export function GithubUser({username}){
-    const {userData, loading, error} = useGithubUser(username)
+    const {userData, loading, genericError, userError} = useGithubUser(username)
 
    
     return(
@@ -11,7 +11,8 @@ export function GithubUser({username}){
             {userData && <ul><li>ID: {userData.id}</li>
             <li>Name: {userData.name}</li>
             <li>Followers: {userData.followers}</li></ul>}
-            {error && <h2>An error has occurred</h2>}
+            {genericError && <h2>An error has occurred</h2>}
+            {userError && <h2>USER NOT FOUND</h2>}
           
            
         </div>
