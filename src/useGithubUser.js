@@ -4,15 +4,20 @@ import useSWR from "swr"
 
  export function useGithubUser(username){
 
-    const {data, error, } = useSWR(username !== null ? `https://api.github.com/users/${username}`: null, fetcher)
+    const {data, error, mutate} = useSWR(username !== null ? `https://api.github.com/users/${username}`: null, fetcher)
+
+    function handleRefetchData(){
+        mutate()
+    }
 
     return{
         userData: data,
         loading: !data && !error && username !== null,
         genericError: error,
-        userError: !data
+        userError: !data,
+        onRefresh: handleRefetchData
     }
 
 }
 
-/* Modify the useGithubUser hook so that, if the username is null, no request is made. */
+/*Modify the useGithubUser hook so that it returns a function to manually refetch the data when invoked. */

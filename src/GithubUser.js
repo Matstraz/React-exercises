@@ -1,7 +1,7 @@
 import { useGithubUser } from "./useGithubUser"
 
 export function GithubUser({username}){
-    const {userData, loading, genericError, userError} = useGithubUser(username)
+    const {userData, loading, genericError, userError, onRefresh} = useGithubUser(username)
 
    
     return(
@@ -13,8 +13,7 @@ export function GithubUser({username}){
             <li>Followers: {userData.followers}</li></ul>}
             {genericError && <h2>An error has occurred</h2>}
             {userError && <h2>USER NOT FOUND</h2>}
-          
-           
+            <button onClick={onRefresh}>Refresh</button>
         </div>
     )
 }
