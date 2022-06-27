@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import { App } from './app';
-import { incrementCounter } from './state/CounterState';
+import { decrementCounter, incrementCounter, resetCounter } from './state/CounterState';
 import { store } from './state/Store';
 import { todoList } from './state/TodoState';
 
@@ -15,7 +15,15 @@ store.subscribe(()=>{       // Ritorna qualcosa ad ongi cambiamento dello store 
  store.dispatch(todoList.actions.add({id: 1, title: 'milk', completed: true}))
  store.dispatch(incrementCounter(5))
  store.dispatch(todoList.actions.add({id: 2, title: 'eggs', completed: false}))
- store.dispatch(incrementCounter(2))
+ store.dispatch(decrementCounter(2))
+ store.dispatch(todoList.actions.edit({id: 2, data: {completed: true}}))
+ store.dispatch(resetCounter())
+ store.dispatch(incrementCounter(3))
+ store.dispatch(todoList.actions.remove({id: 1}))
+
+
+
+
  
 
 
