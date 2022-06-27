@@ -1,6 +1,9 @@
-import { createStore } from "redux";
+import { combineReducers, createStore } from "redux";
 import { counterReducer } from "./CounterState";
-/* import { counterWithToolkit } from "./CounterStateUsingToolkit"; */
+import { todoList } from "./TodoState";
 
-export const store = createStore(counterReducer) //Create store, passandogli il reducer, ritornerà lo STORE.
-/* export const store = createStore(counterWithToolkit.reducer) */
+const rootReducer = combineReducers({ //Questa funzione combina i reducers in uno solo,
+    counter: counterReducer,          // counter e list saranno i domini dello store
+    list: todoList.reducer})
+
+export const store = createStore(rootReducer)
