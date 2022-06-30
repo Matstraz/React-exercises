@@ -29,10 +29,7 @@ export class TodoList extends React.Component{
     render(){
         return (
             <div>
-                {this.props.render(this.state.items)}
-               
-{/*                     {this.state.items.map((name, index) => (<li key={name + index}>{name}<button onClick={this.handleRemoveItem}>Remove Item</button> </li>))}
-             */}
+                {this.props.render(this.state.items, this.handleRemoveItem)}
             </div>
         )
     }

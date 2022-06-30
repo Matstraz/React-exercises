@@ -6,18 +6,12 @@ export class App extends React.Component {
     return (
       <div>
         <TodoList
-          render={(items) => {
-            
-             const removing = (event) => {
-                const toRemove = event.target.previousSibling.textContent
-                items.filter((items) => items !== toRemove)
-                return items
-            }
-
+          render={(items, removerFunction) => {
+ 
             const mappping = items.map((name, index,) => (
               <li key={name + index}>
                 {name}
-                <button onClick={removing}>Remove Item</button>
+                <button onClick={removerFunction}>Remove Item</button>
               </li>
             ));
             
